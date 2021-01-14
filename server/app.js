@@ -1,3 +1,4 @@
+//// Step 1
 var express = require('express')
 var app = express()
 var bodyParser = require('body-parser');
@@ -7,12 +8,15 @@ var fs = require('fs');
 var path = require('path');
 require('dotenv/config');
 
+//// Step 2
 // Connecting to the database 
-mongoose.connect('mongodb+srv://Liliana:Ymedaca21#@cluster0.sftyg.mongodb.net/memoryland?retryWrites=true&w=majority',
+mongoose.connect('mongodb://localhost/lilianaUploadFile',
+// mongoose.connect('mongodb+srv://Liliana:Ymedaca21#@cluster0.sftyg.mongodb.net/memoryland?retryWrites=true&w=majority',
 	{ useNewUrlParser: true, useUnifiedTopology: true }, err => {
 		console.log('connected to mongodb')
 	});
 
+//// Step 3 - code added to ./model.js
  
 //// Step 4 
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -22,8 +26,8 @@ app.use(bodyParser.json())
 app.set("view engine", "ejs");
 
 //// Step 5
-var fs = require('fs');
-var path = require('path');
+// var fs = require('fs');
+// var path = require('path');
 var multer = require('multer');
 
 var storage = multer.diskStorage({
